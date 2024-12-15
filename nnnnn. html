@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تم اختراقك بنجاح</title>
+</head>
+<body>
+    <h1>تم اختراقك بنجاح!</h1>
+    <p>لتفادي الاختراق، يجب إطفاء الهاتف بالكامل لمدة ساعة.</p>
+    <p>وهنا عد تنازلي من العشرة إلى الصفر:</p>
+    <div id="countdown"></div>
+    <script>
+        var countdownDate = new Date().getTime() + 10 * 1000; // 10 seconds countdown
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countdownDate - now;
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = seconds + " ثانية";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "انتهى العد التنازلي!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
